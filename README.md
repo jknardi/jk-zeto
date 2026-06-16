@@ -1,5 +1,10 @@
 # jk-zeto 🛡️
 
+[![NPM Version](https://shields.io)](https://www.npmjs.com/package/jk-zeto)
+[![GitHub Actions Status](https://github.com)](https://github.com/jknardi/jk-zeto)
+[![License: MIT](https://shields.io)](https://opensource.org)
+
+
 **Zero-dependency, high-performance secure token library for Node.js using native crypto.**  
 *Pustaka token aman berkinerja tinggi tanpa dependensi pihak ketiga untuk Node.js menggunakan modul kriptografi bawaan.*
 
