@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 // EN: Import both classes from the main entry point
 // ID: Impor kedua kelas dari entry point utama
 import { SecureToken, AsymmetricToken } from '../src/index.js';
+import { RefreshTokenManager } from '../src/index.js';
 
 test(
   'SecureToken - Successful Flow (Generate & Verify) / Alur Sukses (Generate & Verify)',
@@ -112,4 +113,33 @@ test('AsymmetricToken - EN: Reject altered signatures | ID: Tolak tanda tangan y
   }, /Verification failed/);
 });
 
+
+test('RefreshTokenManager - EN: Full Success Flow | ID: Alur Sukses Penuh', () => {
+  const manager = new RefreshTokenManager('refresh-secret-key-999');
+  const userPayload = { userId: 'usr_abc123' };
+
+  // EN: Generate refresh token (7 days default)
+  // ID: Buat refresh token (default 7 hari)
+  const refreshToken = manager.generate(userPayload);
+  assert.ok(refreshToken.startsWith('v1.ref.'));
+
+  // EN: Verify refresh token
+  // ID: Verifikasi refresh token
+  const result = manager.verify(refreshToken);
+  
+  assert.deepStrictEqual(result.payload, userPayload);
+  assert.strictEqual(typeof result.tokenId, 'string');
+  assert.strictEqual(result.tokenId.length, 48); // 24 bytes hex = 48 chars
+});
+
+test('RefreshTokenManager - EN: Reject modified refresh tokens | ID: Tolak refresh token yang dimodifikasi', () => {
+  const manager = new RefreshTokenManager('refresh-secret');
+  const token = manager.generate({ id: 1 });
+  
+  const brokenToken = token.replace('v1.ref.', 'v1.ref.modified');
+
+  assert.throws(() => {
+    manager.verify(brokenToken);
+  }, /Refresh token verification failed/);
+});
 
