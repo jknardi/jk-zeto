@@ -30,7 +30,7 @@ Unlike standard JWTs which are only base64-encoded and prone to algorithm manipu
 ### 📦 Installation
 Since this library is open-source, you can link it locally or install it directly via GitHub (or npm once published):
 ```bash
-npm install github:username/jk-zeto
+npm install github:jknardi/jk-zeto
 ```
 
 ---
@@ -114,7 +114,7 @@ Berbeda dengan JWT standar yang datanya hanya di-encode dengan base64 dan rentan
 ### 📦 Cara Instalasi
 Karena pustaka ini bersifat open-source, Anda dapat memasangnya langsung dari GitHub:
 ```bash
-npm install github:username/jk-zeto
+npm install github:jknardi/jk-zeto
 ```
 
 ---
