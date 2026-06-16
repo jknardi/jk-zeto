@@ -35,7 +35,11 @@ export class AsymmetricToken {
     try {
       // EN: Create digital signature using Ed25519 private key
       // ID: Membuat tanda tangan digital menggunakan private key Ed25519
-      const signature = crypto.sign(undefined, Buffer.from(encodedPayload), this.key);
+      const signature = crypto.sign(
+        null, 
+        Buffer.from(encodedPayload), 
+        this.key
+      );
 
       const encodedSignature = signature.toString('base64url');
 
@@ -70,7 +74,12 @@ export class AsymmetricToken {
 
       // EN: Verify the digital signature using the public key
       // ID: Verifikasi tanda tangan digital menggunakan public key
-      const isVerified = crypto.verify(undefined, payloadBuffer, this.key, signatureBuffer);
+      const isVerified = crypto.verify(
+        null, 
+        payloadBuffer, 
+        this.key, 
+        signatureBuffer
+      );
 
       if (!isVerified) {
         throw new Error('EN: Signature verification failed | ID: Verifikasi tanda tangan gagal');
