@@ -1,7 +1,7 @@
 # jk-zeto 🛡️
 
-[![NPM Version](https://shields.io)](https://www.npmjs.com/package/jk-zeto)
-[![GitHub Actions Status](https://github.com)](https://github.com/jknardi/jk-zeto)
+[![NPM Version](https://www.npmjs.com/package/jk-zeto)](https://www.npmjs.com/package/jk-zeto)
+[![GitHub Actions Status](https://github.com/jknardi/jk-zeto)](https://github.com/jknardi/jk-zeto)
 [![License: MIT](https://shields.io)](https://opensource.org)
 
 
